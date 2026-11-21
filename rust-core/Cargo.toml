@@ -1,0 +1,33 @@
+[package]
+name = "nala-oclp-rs"
+version = "3.0.0-nala.6.6.6"
+edition = "2024"
+license = "BSD-3-Clause"
+authors = [
+    "Dhinak G & Mykola Grymalyuk (Upstream OpenCore Legacy Patcher v3.0.0)",
+    "NALA Engineering (100% Native Pure Safe Rust Control-Plane & Orchestrator)"
+]
+description = "100% Native Pure Safe Rust (Edition 2024, #![forbid(unsafe_code)], 0 External Crates, Zero-Python) OpenCore Legacy Patcher v3.x (macOS 11 Big Sur - macOS 26 Tahoe) Control-Plane, Deterministic OpenCore 1.0.6 EFI Builder, Upstream Dortania 3.x SHA-256 Payload Sync, NCSP v2.5 APFS Snapshot/Rollback Guardian, 12-Tool Stdio MCP Server & AAA Anti-AI-Slop 2-Click Dream/REA/RSI Cockpit"
+repository = "https://github.com/Master-MD/NALA-OpenCore-Legacy-Patcher"
+readme = "README.md"
+keywords = ["opencore", "macos", "tahoe", "rust", "efi"]
+categories = ["command-line-utilities", "os::macos-apis", "hardware-support"]
+
+[lib]
+name = "nala_oclp_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "nala-oclp-rs"
+path = "src/main.rs"
+
+[dependencies]
+# 100% Pure Rust Standard Library — Zero external crate supply-chain attack surface,
+# instant cross-compilation across macOS (ARM64/x86_64) and Linux (x86_64/ARM64).
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true

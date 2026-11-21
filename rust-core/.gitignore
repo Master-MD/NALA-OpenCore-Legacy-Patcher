@@ -1,0 +1,7 @@
+/target
+/.ncsp_backups
+/dist
+*.bundle
+*.dmg
+*.pkg
+.DS_Store
